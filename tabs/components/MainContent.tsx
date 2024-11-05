@@ -12,7 +12,9 @@ import {
   BookmarkSection,
   FolderCardList,
   FolderCard,
-  Divider
+  Divider,
+  MainContentTitle,
+  HeaderSection
 } from "./StyledComponents";
 
 const MainContent = ({
@@ -78,31 +80,36 @@ const MainContent = ({
 
   return (
     <StyledMainContent>
-      <Breadcrumb>
-        {currentFolder ? generateBreadcrumbs().map((folder, index) => (
-          <React.Fragment key={folder.id}>
-            {index > 0 && <BreadcrumbSeparator>&gt;</BreadcrumbSeparator>}
-            <BreadcrumbItem
-              onClick={() => setCurrentFolder(index === generateBreadcrumbs().length - 1 ? folder : folder)}
-            >
-              {folder.title||'书签'}
-            </BreadcrumbItem>
-          </React.Fragment>
-        )) : <BreadcrumbItem
-        onClick={() => null}
-      >
-        {'书签'}
-      </BreadcrumbItem>}
-      </Breadcrumb>
-      <SearchBar>
-        <SearchIcon />
-        <input
-          type="text"
-          placeholder="搜索..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-      </SearchBar>
+      <MainContentTitle>
+        {currentFolder ? currentFolder.title : '书签'}
+      </MainContentTitle>
+      <HeaderSection>
+        <Breadcrumb>
+          {currentFolder ? generateBreadcrumbs().map((folder, index) => (
+            <React.Fragment key={folder.id}>
+              {index > 0 && <BreadcrumbSeparator>&gt;</BreadcrumbSeparator>}
+              <BreadcrumbItem
+                onClick={() => setCurrentFolder(index === generateBreadcrumbs().length - 1 ? folder : folder)}
+              >
+                {folder.title||'书签'}
+              </BreadcrumbItem>
+            </React.Fragment>
+          )) : <BreadcrumbItem
+            onClick={() => null}
+          >
+            {'书签'}
+          </BreadcrumbItem>}
+        </Breadcrumb>
+        <SearchBar>
+          <SearchIcon />
+          <input
+            type="text"
+            placeholder="搜索..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+        </SearchBar>
+      </HeaderSection>
       {isLoading ? (
         <p>加载中...</p>
       ) : (
@@ -115,7 +122,7 @@ const MainContent = ({
               </FolderCardList>
             </FolderSection>
           )}
-          <Divider />
+          {searchedBookmarks.filter((item) => !item.url).length > 0 && <Divider />}
           <BookmarkSection>
             {/* <h3>书签</h3> */}
             <BookmarkList>

@@ -8,7 +8,6 @@ import { ChevronDown, Folder, Bookmark, Search } from "react-feather";
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-bottom: 20px;
     cursor: pointer;
   `;
   
@@ -52,7 +51,7 @@ import { ChevronDown, Folder, Bookmark, Search } from "react-feather";
 const FolderCardList = styled.ul`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(144px, 1fr));
-  gap: 25px;
+  gap: 20px;
   list-style-type: none;
   padding: 20px;
 `;
@@ -141,13 +140,14 @@ const BookmarkTitle = styled.div`
   font-size: 18px;
   position: relative;
   z-index: 1;
-  height: 2.4em; // Set a fixed height for two lines (adjust if needed)
+  // height: 2.4em; // Set a fixed height for two lines (adjust if needed)
   line-height: 1.2em; // Set line height to match the height
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 2; // Limit to 2 lines
   -webkit-box-orient: vertical;
   text-overflow: ellipsis; // Add ellipsis for overflowing text
+  word-break: break-all;
 `;
 
 const BookmarkUrl = styled.div`
@@ -286,8 +286,8 @@ const SearchBar = styled.div`
   background-color: white;
   border-radius: 20px;
   padding: 10px 20px;
-  margin-bottom: 0px;
   box-shadow: 0 2px 10px ${rgba(0, 0, 0, 0.1)};
+  width: 300px;  // 设置一个固定宽度
 
   input {
     border: none;
@@ -308,9 +308,12 @@ const BookmarkIcon = styled.div`
 `;
 
 const FolderItemIcon = styled(Folder)`
-  width: 60px;
-  height: 60px;
-  color: #8B5CF6;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 114px;
+  height: 86px;
+  color: rgba(139, 92, 246, 0.05);
 `;
 
 const BookmarkItemIcon = styled(Bookmark)`
@@ -341,10 +344,21 @@ export const Divider = styled.hr`
   border: none;
   height: 1px;
   background-color: #e0e0e0;
-  margin: 16px 0;
+  margin: 0;
 `;
 
+export const MainContentTitle = styled.h1`
+  margin: 0 0 16px 0;
+  font-size: 24px;
+  font-weight: 500;
+  color: #4B5563;
+`;
 
+const HeaderSection = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
 
 export {
   Sidebar,
@@ -371,5 +385,6 @@ export {
   FolderItemIcon,
   BookmarkItemIcon,
   FolderCard,
-  FolderCardList
+  FolderCardList,
+  HeaderSection
 };

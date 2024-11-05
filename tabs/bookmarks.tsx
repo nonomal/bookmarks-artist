@@ -72,7 +72,6 @@ function bookmarks() {
       return newState;
     });
       
-    // ... existing findFolder code ...
     const findFolder = (nodes) => {
       for (let node of nodes) {
         if (node.id === folderId) {
