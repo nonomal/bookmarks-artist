@@ -140,6 +140,22 @@ const BookmarkTitle = styled.div`
   font-size: 18px;
   position: relative;
   z-index: 1;
+  height: 2.4em; // Set a fixed height for two lines (adjust if needed)
+  line-height: 1.2em; // Set line height to match the height
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; // Limit to 2 lines
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis; // Add ellipsis for overflowing text
+  word-break: break-all;
+`;
+const FolderCardTitle = styled.div`
+  font-weight: 600;
+  margin: 15px 0 10px;
+  color: #333;
+  font-size: 18px;
+  position: relative;
+  z-index: 1;
   // height: 2.4em; // Set a fixed height for two lines (adjust if needed)
   line-height: 1.2em; // Set line height to match the height
   overflow: hidden;
@@ -307,10 +323,15 @@ const BookmarkIcon = styled.div`
   color: #8B5CF6;
 `;
 
-const FolderItemIcon = styled(Folder)`
+const FolderCardIcon = styled.div`
   position: absolute;
   top: 0;
   left: 0;
+  height: 60px;
+  color: #8B5CF6;
+`;
+
+const FolderItemIcon = styled(Folder)`
   width: 114px;
   height: 86px;
   color: rgba(139, 92, 246, 0.05);
@@ -386,5 +407,7 @@ export {
   BookmarkItemIcon,
   FolderCard,
   FolderCardList,
-  HeaderSection
+  HeaderSection,
+  FolderCardIcon,
+  FolderCardTitle
 };

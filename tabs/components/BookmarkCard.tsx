@@ -7,17 +7,18 @@ import {
   FolderItemIcon,
   BookmarkItemIcon,
   FolderCard,
-  
+  FolderCardIcon,
+  FolderCardTitle
 } from "./StyledComponents";
 
 const BookmarkCard = ({ title, url, isFolder, onClick }) => {
   if (isFolder) {
     return (
       <FolderCard onClick={onClick}>
-        <BookmarkIcon>
+        <FolderCardIcon>
           <FolderItemIcon />
-        </BookmarkIcon>
-        <BookmarkTitle>{title}</BookmarkTitle>
+        </FolderCardIcon>
+        <FolderCardTitle>{title}</FolderCardTitle>
       </FolderCard>
     );
   }
