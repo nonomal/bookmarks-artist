@@ -369,6 +369,9 @@ export const Divider = styled.hr`
 `;
 
 export const MainContentTitle = styled.h1`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin: 0 0 16px 0;
   font-size: 24px;
   font-weight: 500;

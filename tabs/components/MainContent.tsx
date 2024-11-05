@@ -1,5 +1,5 @@
 import React from "react";
-import { SearchIcon } from "./Icons";
+import { SearchIcon, GithubIcon } from "./Icons";
 import BookmarkCard from "./BookmarkCard";
 import {
   MainContent as StyledMainContent,
@@ -82,6 +82,14 @@ const MainContent = ({
     <StyledMainContent>
       <MainContentTitle>
         {currentFolder ? currentFolder.title : '书签'}
+        <a 
+          href="https://github.com/liujuntao123/bookmarks-artist" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          style={{ marginLeft: '10px', display: 'inline-flex', alignItems: 'center' }}
+        >
+          <GithubIcon />
+        </a>
       </MainContentTitle>
       <HeaderSection>
         <Breadcrumb>
